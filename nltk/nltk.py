@@ -1,4 +1,4 @@
-#! /var/chroot/home/content/31/5769131/myenv/bin/python
+#! /bin/python
 
 #########################################################
 
@@ -86,7 +86,7 @@ dutch = brown.words()
 #print dutch[1]
 
 #result = {'status': 'Yes!'}
-#result = 'Ricardo A. Calix, Ph.D., ' + data + ', ' + dutch[1]
+#result = 'random, ' + data + ', ' + dutch[1]
 result = predicted_class
 
 #########################################################

@@ -11,10 +11,6 @@ echo '<p>Enter a name of your choice and use a trained Naive Bayes classifier to
 //echo $output[1];
 ////////////////////////////////////////////////////////////////////////////////////
 
-//$command = "/var/chroot/home/content/31/5769131/html/cgi/ricardo.py";
-//$temp = exec($command, $output);
-//echo $temp; //this has data
-
 ////////////////////////////////////////////////////////////////////////////////////
 
 echo '<br /><form action="" method="post"><input type="text" name="username" /><input type="submit" value="Click" /></form>';
@@ -47,6 +43,6 @@ echo "<br />";
 
 
 <br />
-<a href="http://www.rcalix.com">rcalix.com</a>
+
 </body>
 </html>
