@@ -7,12 +7,6 @@
 echo '<h2>Name gender classifier with Naive Bayes</h2>';
 echo '<p>Enter a name of your choice and use a trained Naive Bayes classifier to predict if the name is "Male" or "Female".</p>';
 
-//echo exec("pwd");
-//echo $output[1];
-////////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////////
-
 echo '<br /><form action="" method="post"><input type="text" name="username" /><input type="submit" value="Click" /></form>';
 //$test = $_POST['username'];
 //echo $test;

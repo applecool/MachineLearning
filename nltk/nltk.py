@@ -7,7 +7,6 @@ import nltk
 from nltk.corpus import brown
 #from nltk.corpus import wordnet as wn
 #from __future__ import division
-#import re
 from urllib import urlopen
 
 #########################################################
