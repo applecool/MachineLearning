@@ -6,7 +6,7 @@ import '/usr/lib/nltk'
 
 try:
     data = json.loads(sys.argv[1])
-    
+
 except:
     print "ERROR with input"
     sys.exit(1)
