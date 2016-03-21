@@ -1,4 +1,4 @@
-#! /var/chroot/home/content/31/5769131/myenv/bin/python
+#! /bin/python
 
 #########################################################
 
@@ -15,7 +15,7 @@ from urllib import urlopen
 #########################################################
 # Load the data that PHP sent us
 
-#data = 'http://www.gutenberg.org/cache/epub/14868/pg14868.txt'
+
 try:
     data = json.loads(sys.argv[1])
 except:
@@ -27,36 +27,10 @@ except:
 #########################################################
 ## Access text from the web (such as data)
 
-#url = "http://www.galacticbackwater.com/data/iris.csv"
-#url = data
-#raw = urlopen(url).read()
-#result = raw
-#soup= BeautifulSoup(raw)
+
 #cleantext = soup.text
 input_string = data
 #print input_string
-
-##########################################################
-##  Wordnet
-
-#my_wordnet = wn.synset('car.n.01').lemma_names
-#my_wordnet = wn.synset('car.n.01').definition
-#result = my_wordnet
-
-#########################################################
-## stemming
-
-##porter = nltk.PorterStemmer()
-##result = porter.stem('distributing')
-
-#########################################################
-## Part of Speech Tagging (not working)
-## this needs numpy
-
-#thesentence = "And now for something completely different"
-#text = nltk.word_tokenize(thesentence)
-#temp = nltk.pos_tag(text)
-#print temp
 
 ##########################################################
 ## Naive Bayes Classifier
@@ -88,13 +62,6 @@ classifier = nltk.NaiveBayesClassifier.train(train_set)
 predicted_class = classifier.classify(document_features(input_string))
 
 
-#########################################################
-
-#dutch = brown.words()
-#print dutch[1]
-
-#result = {'status': 'Yes!'}
-#result = 'Ricardo A. Calix, Ph.D., ' + data + ', ' + dutch[1]
 result = predicted_class
 
 #########################################################
@@ -105,9 +72,3 @@ print json.dumps(result)
 
 #End
 #########################################################
-
-
-
-
-
-
