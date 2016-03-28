@@ -1,10 +1,10 @@
-#! /usr/bin/python
+
 
 #########################################################
 
-#import sys, json
-#import nltk
-#from nltk.corpus import brown
+import sys, json
+import nltk
+from nltk.corpus import brown
 
 #########################################################
 # Load the data that PHP sent us
@@ -17,6 +17,25 @@ except:
     print "ERROR with input"
     sys.exit(1)
 
+#print data
+
+
+##########################################################
+##  Wordnet
+
+#my_wordnet = wn.synset('car.n.01').lemma_names
+#my_wordnet = wn.synset('car.n.01').definition
+#result = my_wordnet
+
+#########################################################
+## stemming
+
+##porter = nltk.PorterStemmer()
+##result = porter.stem('distributing')
+
+#########################################################
+## Part of Speech Tagging (not working)
+## this needs numpy
 
 def pos_features(sentence, i):
     features = {"suffix(1)": sentence[i][-1:],
@@ -56,5 +75,21 @@ for i, word in enumerate(tokens):
     answer = answer + ' (' + '(' + word + '),' + '(' + predicted_tag + ')' + '), '
 
 result = answer
+#result = data +'hellopurdue'
+#print nltk.classify.accuracy(classifier, test_set)
+
+
+#########################################################
+
+#result = 'Ricardo A. Calix, Ph.D., ' + data + ', ' + dutch[1]
+
+
+#########################################################
+# Send it to stdout (to PHP)
 
 print json.dumps(result)
+#print result
+
+
+#End
+#########################################################

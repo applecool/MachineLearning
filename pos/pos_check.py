@@ -1,7 +1,7 @@
-#! /usr/bin/python
+#!/usr/bin/python
 
-import sys,json
-import '/usr/lib/nltk'
+import sys
+import json
 
 
 try:
