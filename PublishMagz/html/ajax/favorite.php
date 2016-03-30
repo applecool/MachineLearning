@@ -1,16 +1,14 @@
 <?php
 
 // This page adds or removes a favorite for the user.
-// This script is created in Chapter 14.
 // This script is used for an Ajax request.
 // This script returns a simple string.
-
 // Require the configuration before any PHP code as the configuration controls error reporting:
 require('../includes/config.inc.php');
 // The config file also starts the session.
 
 // Need these values:
-if (isset($_GET['page_id'], $_GET['action'], $_SESSION['user_id']) 
+if (isset($_GET['page_id'], $_GET['action'], $_SESSION['user_id'])
 	&& filter_var($_GET['page_id'], FILTER_VALIDATE_INT, array('min_range' => 1))
 	&& filter_var($_SESSION['user_id'], FILTER_VALIDATE_INT, array('min_range' => 1))
 	) {
@@ -27,7 +25,7 @@ if (isset($_GET['page_id'], $_GET['action'], $_SESSION['user_id'])
 	if (isset($q)) { // If the action was appropriate, run the query...
 
 		// Require the database connection:
-		require(MYSQL);	
+		require(MYSQL);
 		$stmt = mysqli_prepare($dbc, $q);
 		mysqli_stmt_bind_param($stmt, 'ii', $_SESSION['user_id'], $_GET['page_id']);
 		mysqli_stmt_execute($stmt);

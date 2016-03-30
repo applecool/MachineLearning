@@ -4,7 +4,7 @@ CREATE TABLE `categories` (
 	`id` SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
 	`category` VARCHAR(45) NOT NULL,
 	PRIMARY KEY (`id`),
-	UNIQUE INDEX `category_UNIQUE` (`category` ASC) 
+	UNIQUE INDEX `category_UNIQUE` (`category` ASC)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `pages` (
@@ -34,7 +34,7 @@ CREATE TABLE `pdfs` (
 	`date_created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (`id`),
 	UNIQUE INDEX `tmp_name_UNIQUE` (`tmp_name` ASC),
-	INDEX `date_created` (`date_created` ASC) 
+	INDEX `date_created` (`date_created` ASC)
 ) ENGINE = InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE `users` (
@@ -71,13 +71,6 @@ CREATE TABLE `orders` (
 		ON UPDATE NO ACTION
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- BONUS TABLES!
---
-
--- --------------------------------------------------------
 
 CREATE TABLE history (
 `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
