@@ -94,11 +94,11 @@ create_form_input('title', 'text', 'Title', $add_page_errors);
 echo '<div class="form-group';
 if (array_key_exists('category', $add_page_errors)) echo ' has-error';
 
-/*
+
 echo '"><label for="category" class="control-label">Category</label>
 <select name="category" class="form-control">
 <option>Select One</option>';
-*/
+
 
 // Allow for multiple categories:
 echo '"><label for="category" class="control-label">Category</label>
