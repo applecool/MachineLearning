@@ -7,7 +7,7 @@
 require('./includes/config.inc.php');
 
 // If the user isn't logged in as an administrator, redirect them:
-redirect_invalid_user('user_admin');
+redirect_invalid_user('user_id'); //changed from user_admin to user_id
 
 // Require the database connection:
 require(MYSQL);

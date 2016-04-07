@@ -33,8 +33,8 @@ DEFINE('CONTACT_EMAIL', 'kmitharsha@gmail.com');
 // ************ CONSTANTS *********** //
 
 // Determine location of files and the URL of the site:
-define ('BASE_URI', '/Applications/XAMPP/htdocs/PublishMe/');
-define ('BASE_URL', 'localhost/PublishMe/html/');
+define ('BASE_URI', '/Applications/XAMPP/htdocs/ex1/');
+define ('BASE_URL', 'localhost/ex1/html/');
 define ('PDFS_DIR', BASE_URI . 'pdfs/'); // Added in Chapter 5.
 define ('MYSQL', BASE_URI . 'mysql.inc.php');
 
@@ -46,7 +46,6 @@ define ('MYSQL', BASE_URI . 'mysql.inc.php');
 
 // Start the session:
 session_start();
-
 // ************ SESSIONS *********** //
 // ********************************* //
 

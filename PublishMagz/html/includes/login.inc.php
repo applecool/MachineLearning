@@ -46,6 +46,7 @@ if (empty($login_errors)) { // OK to proceed!
 		
 			// Store the data in a session:
 			$_SESSION['user_id'] = $row['id'];
+			session_regenerate_id(true); //added newly
 			$_SESSION['username'] = $row['username'];
 
 			// Only indicate if the user's account is not expired:

@@ -10,7 +10,7 @@
 	if (isset($page_title)) {
 			echo $page_title;
 	} else {
-			echo 'Knowledge is Power: And It Pays to Know';
+			echo 'PublishMagz: Feel the power at your hands';
 	}
 	?></title>
 
@@ -37,7 +37,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Knowledge is Power</a>
+          <a class="navbar-brand" href="index.php">PublishMagz</a>
           <div class="nav-collapse collapse">
             <ul class="nav navbar-nav">
 <?php // Dynamically create header menus...
@@ -70,6 +70,16 @@ foreach ($pages as $k => $v) {
 
 // Show the user options:
 if (isset($_SESSION['user_id'])) {
+	
+	//admin options but tweaked to the users
+	echo '<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Publish <b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a href="add_page.php">Add Page</a></li>
+				<li><a href="add_pdf.php">Add PDF</a></li>
+				<li><a href="#">Something else here</a></li>
+			</ul>
+		</li>';
 
 	// Show basic user options:
 	// Includes references to some bonus material discussed in Part Four!
@@ -83,18 +93,7 @@ if (isset($_SESSION['user_id'])) {
 			<li><a href="recommendations.php">Recommendations</a></li>
 		</ul>
 	</li>';
-
-	// Show admin options, if appropriate:
-	if (isset($_SESSION['user_admin'])) {
-		echo '<li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
-			<ul class="dropdown-menu">
-				<li><a href="add_page.php">Add Page</a></li>
-				<li><a href="add_pdf.php">Add PDF</a></li>
-				<li><a href="#">Something else here</a></li>
-			</ul>
-		</li>';
-	}
+	
 
 } // user_id not set.
 
@@ -110,6 +109,11 @@ if (isset($_SESSION['user_id'])) {
 		<div class="row">
 
 			<div class="col-3">
+			<?php // Should we show the login form?
+if (!isset($_SESSION['user_id'])) {
+	require('includes/login_form.inc.php');
+}
+?>
 				<h3 class="text-success">Content</h3>
 			<div class="list-group">
 <?php // Dynamically generate the content links:
@@ -124,11 +128,6 @@ while (list($id, $category) = mysqli_fetch_array($r, MYSQLI_NUM)) {
 			  </a>
 			</div><!--/list-group-->
 
-<?php // Should we show the login form?
-if (!isset($_SESSION['user_id'])) {
-	require('includes/login_form.inc.php');
-}
-?>
 			</div><!--/col-3-->
 
 
