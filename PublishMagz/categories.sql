@@ -1,3 +1,4 @@
+#An Extra SQL Script to populate the category values into the table. The pages feature doesnt work if you dont execute this file.
 INSERT INTO `categories` (`id`, `category`) VALUES (1, 'Music'),
 (2, 'Fashion'),
 (3, 'Car'),
