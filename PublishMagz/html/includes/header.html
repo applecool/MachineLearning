@@ -55,7 +55,7 @@ $this_page = basename($_SERVER['PHP_SELF']);
 
 // Create each menu item:
 foreach ($pages as $k => $v) {
-
+  //Need to remove the register for the logged user
 	// Start the item:
 	echo '<li';
 
@@ -70,7 +70,7 @@ foreach ($pages as $k => $v) {
 
 // Show the user options:
 if (isset($_SESSION['user_id'])) {
-	
+
 	//admin options but tweaked to the users
 	echo '<li class="dropdown">
 		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Publish <b class="caret"></b></a>
@@ -93,7 +93,7 @@ if (isset($_SESSION['user_id'])) {
 			<li><a href="recommendations.php">Recommendations</a></li>
 		</ul>
 	</li>';
-	
+
 
 } // user_id not set.
 
