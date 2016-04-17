@@ -50,6 +50,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	} else {
 		$add_page_errors['content'] = 'Please enter the content!';
 	}
+
+	$test = $_POST['content'];
+	echo $test;
+	$data = $test;
+	$result = shell_exec('python "/Applications/XAMPP/htdocs/pos/postagger.py" ' . escapeshellarg(json_encode($data)));
+	$resultData = json_decode($result, true);
+	echo "<br />";
+	//echo $result;
+	echo $resultData;
+	echo "<br />";
 		
 	if (empty($add_page_errors)) { // If everything's OK.
 
