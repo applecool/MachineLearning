@@ -53,9 +53,11 @@ $pages = array (
 // The page being viewed:
 $this_page = basename($_SERVER['PHP_SELF']);
 
+$count_array = count($pages);
+
 // Create each menu item:
 foreach ($pages as $k => $v) {
-  //Need to remove the register for the logged user
+
 	// Start the item:
 	echo '<li';
 
@@ -63,14 +65,21 @@ foreach ($pages as $k => $v) {
 	if ($this_page == $v) echo ' class="active"';
 
 	// Complete the item:
-	echo '><a href="' . $v . '">' . $k . '</a></li>
-	';
+	if(!isset($_SESSION['user_id'])){
+		echo '><a href="' . $v . '">' . $k . '</a></li>
+		';
+	}else{
+		echo '><a href="' . $v . '">' . $k . '</a></li>
+	';	
+		if(--$count_array <= 1)
+			break;		
+	}
 
 } // End of FOREACH loop.
 
 // Show the user options:
 if (isset($_SESSION['user_id'])) {
-
+	
 	//admin options but tweaked to the users
 	echo '<li class="dropdown">
 		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Publish <b class="caret"></b></a>
@@ -93,7 +102,7 @@ if (isset($_SESSION['user_id'])) {
 			<li><a href="recommendations.php">Recommendations</a></li>
 		</ul>
 	</li>';
-
+	
 
 } // user_id not set.
 
