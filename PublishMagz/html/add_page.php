@@ -55,10 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	echo $test;
 	$data = $test;
 	$result = shell_exec('python "/Applications/XAMPP/htdocs/pos/postagger.py" ' . escapeshellarg(json_encode($data)));
-	$resultData = json_decode($result, true);
+	//$resultData = json_decode($result, true);
 	echo "<br />";
-	//echo $result;
-	echo $resultData;
+	echo $result;
 	echo "<br />";
 		
 	if (empty($add_page_errors)) { // If everything's OK.
