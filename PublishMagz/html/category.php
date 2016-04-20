@@ -37,7 +37,8 @@ if (filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min_range' => 1))) {
 	} elseif (!isset($_SESSION['user_id'])) {
 		echo '<div class="alert">Thank you for your interest in this content. You must be logged in as a registered user to view site content.</div>';
 	}
-
+	elseif (isset($_SESSION['user_id']))
+{
 	// Get the pages associated with this category:
 	$q = 'SELECT id, title, description FROM pages WHERE categories_id=' . $cat_id . ' ORDER BY date_created DESC';
 	$r = mysqli_query($dbc, $q);
@@ -60,7 +61,7 @@ if (filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min_range' => 1))) {
 	include('./includes/header.html');
 	echo '<div class="alert alert-danger">This page has been accessed in error.</div>';
 } // End of primary IF.
-
+}
 // Include the HTML footer:
 include('./includes/footer.html');
 ?>

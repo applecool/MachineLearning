@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if (empty($add_page_errors)) { // If everything's OK.
 
 		// Add the page to the database:
-		$q = "INSERT INTO pages (categories_id, title, description, content) VALUES ('$cat', '$t', '$d', '$c')";
+		$q = "INSERT INTO pages (categories_id, title, description, content,Created_By) VALUES ('$cat', '$t', '$d', '$c','".$_SESSION['username']."')";
 		$r = mysqli_query($dbc, $q);
 
 		if (mysqli_affected_rows($dbc) === 1) { // If it ran OK.

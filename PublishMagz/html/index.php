@@ -26,7 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 include('./includes/header.html');
 
 /* PAGE CONTENT STARTS HERE! */
-?><h1>Welcome</h1> 
+?>
+<h1>Welcome  <?php if(isset($_SESSION['username'])) echo $_SESSION['username'];?></h1> 
  <p class="lead">Welcome to PublishMagz, a site where you can write any kind of informative content and publish them as magazines so that the whole world can learn and benefit from your knowledgeable and fun articles.</p>
 	<p>Simple, easy to use and free service which lets you publish your content as beautiful magazines or high quality pdf's. Sit right, relax and your high quality pdf or magazine will be ready in a blink of your eye. We are proud to incorporate amazing text processing algorithms to provide you good feedback based on the content you have written. The powerful algorithms will provide you details on your written content like lexical diversity (how many various words have been used and repeated through out the article) so that you can modify your content with other unused words which helps you remove the redundancy in your writing. We bring you recommendations and favorites to you so that you never miss a beautiful article or a magazine created and shared by your peers through out the world. Its a gorgeous platform, go create your first magazine right now and this is just a start. There is much to come in the later releases. Stay tuned and publish your magazines with PublishMag.</p>
 
