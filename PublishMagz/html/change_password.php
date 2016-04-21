@@ -17,6 +17,7 @@ require(MYSQL);
 // Include the header file:
 $page_title = 'Change Your Password';
 include('./includes/header.html');
+include('./includes/category_list.inc.php');
 
 // For storing errors:
 $pass_errors = array();

@@ -24,6 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Include the header file:
 include('./includes/header.html');
+// Include the Categories List file:
+include('./includes/category_list.inc.php');
 
 /* PAGE CONTENT STARTS HERE! */
 ?>

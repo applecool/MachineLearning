@@ -24,6 +24,7 @@ if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('mi
 	if (mysqli_num_rows($r) !== 1) { // Problem!
 		$page_title = 'Error!';
 		include('./includes/header.html');
+		include('./includes/category_list.inc.php');
 		echo '<div class="alert alert-danger">This page has been accessed in error.</div>';
 		include('./includes/footer.html');
 		exit();
@@ -33,6 +34,7 @@ if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('mi
 	$row = mysqli_fetch_array($r, MYSQLI_ASSOC);
 	$page_title = $row['title'];
 	include('includes/header.html');
+	include('./includes/category_list.inc.php');
 	echo '<h1>' . htmlspecialchars($page_title) . '</h1>';
 	
 	// Display the content if the user's account is current:

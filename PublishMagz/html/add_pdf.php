@@ -15,6 +15,7 @@ require(MYSQL);
 // Include the header file:
 $page_title = 'Add a PDF';
 include('./includes/header.html');
+include('./includes/category_list.inc.php');
 
 // For storing errors:
 $add_pdf_errors = array();

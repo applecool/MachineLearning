@@ -9,15 +9,17 @@ require('./includes/config.inc.php');
 
 // If the user isn't logged in, redirect them:
 redirect_invalid_user();
+// Require the database connection:
+require(MYSQL);
 
 // Include the header file:
 $page_title = 'Your Favorite Pages';
 include('./includes/header.html');
+include('./includes/category_list.inc.php');
+
 
 echo '<h3>Your Favorite Pages</h3>';
 
-// Require the database connection:
-require(MYSQL);
 
 // Get the page info:
 // Query to select all pages and indicate favorites, for future reference:

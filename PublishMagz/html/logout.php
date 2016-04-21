@@ -21,6 +21,8 @@ require(MYSQL);
 // Include the header file:
 $page_title = 'Logout';
 include('./includes/header.html');
+include('./includes/category_list.inc.php');
+
 
 // Print a customized message:
 echo '<h1>Logged Out</h1><p>Thank you for visiting. You are now logged out. Please come back soon!</p>';

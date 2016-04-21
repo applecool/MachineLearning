@@ -15,6 +15,7 @@ require(MYSQL);
 // Include the header file:
 $page_title = 'Add a Site Content Page';
 include('./includes/header.html');
+include('./includes/category_list.inc.php');
 
 // For storing errors:
 $add_page_errors = array();
