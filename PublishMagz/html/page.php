@@ -42,7 +42,6 @@ if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('mi
 
 		$user_id = $_SESSION['user_id'];
 		
-		// Bonus material! Referenced in Chapter 12.
 		// Create add to favorites and remove from favorites links:
 		// See if this is favorite:
 		$q = 'SELECT user_id FROM favorite_pages WHERE user_id=' . $user_id . ' AND page_id=' . $page_id;
@@ -56,13 +55,11 @@ if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('mi
 		// Show the page content:
 		echo "<div>{$row['content']}</div>";
 		
-		// Bonus material! Referenced in Chapter 12.
 		// Record this visit to the history table:
 /*		$q = "INSERT INTO history (user_id, type, page_id) VALUES ({$_SESSION['user_id']}, 'page', $page_id)";
 		$r = mysqli_query($dbc, $q);
 */		
 
-		// Bonus material! Referenced in Chapter 12.
 		// Allow the user to take notes:
 		
 		// Check for a form submission:
