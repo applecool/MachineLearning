@@ -28,10 +28,11 @@ $object_page->edit_status = $_POST['listbox'];
 //$data = array('as', 'df', 'gh');
 $data = 'Robert';
 $data = $test;
-$command = '/Applications/XAMPP/htdocs/movies/moviereviews.py ';
-$result = shell_exec($command . escapeshellarg(json_encode($data)));
+//$command = '/Applications/XAMPP/htdocs/movies/moviereviews.py ';
+//$result = shell_exec($command . escapeshellarg(json_encode($data)));
+$result = shell_exec('python "/Applications/XAMPP/htdocs/pos/postagger.py" ' . escapeshellarg(json_encode($data)));
 
-$resultData = json_decode($result, true);
+//$resultData = json_decode($result, true);
 var_dump($resultData);
 echo "<br />";
 echo $resultData;
