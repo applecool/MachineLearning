@@ -22,9 +22,9 @@ echo '<br />';
 //$data = array('as', 'df', 'gh');
 $data = 'Robert';
 //$data = $test;
-$command = '/Applications/XAMPP/htdocs/nltk/ricardo.py ';
-$result = shell_exec($command . escapeshellarg(json_encode($data)));
-
+//$command = '/Applications/XAMPP/htdocs/nltk/ricardo.py ';
+//$result = shell_exec($command . escapeshellarg(json_encode($data)));
+$result = shell_exec('python "/Applications/XAMPP/htdocs/nltk/ricardo.py" ' . escapeshellarg(json_encode($data)));
 $resultData = json_decode($result, true);
 var_dump($resultData);
 echo "<br />";
