@@ -96,7 +96,7 @@ for i, word in enumerate(tokens):
         verbs.append(word)
 
     #word_list.append(word)
-    
+
     #filtering out the articles and adding them to the fil_wordlist
     if not any(word in s for s in neglect_list):
         fil_wordlist.append(word)
@@ -172,7 +172,7 @@ word_set = word.synsets
 
 for x in word_set:
     unfil_list.append(x.hypernyms())
-    
+
 filtered_list = [i for i in unfil_list if i]
 
 for y in filtered_list:
@@ -192,37 +192,37 @@ print 'Recommendations-2:',comma.join(final_reco_list)
 
 #########################################
 #recommendations on the verbs
-# max_verb = max(count_verbs, key=count_verbs.get)
-# print 'highest_occ_verb:',max_verb
+max_verb = max(count_verbs, key=count_verbs.get)
+print 'highest_occ_verb:',max_verb
 
-# word_verb = Word(max_verb)
-# word_set_verb = word_verb.synsets
+word_verb = Word(max_verb)
+word_set_verb = word_verb.synsets
 
-# unfil_verb_list = []
-# filtered_verb_list = []
-# reco_verb_list = []
-# set_verb_list = []
+unfil_verb_list = []
+filtered_verb_list = []
+reco_verb_list = []
+set_verb_list = []
 
-# for x in word_set_verb:
-#     unfil_verb_list.append(x.hypernyms())
-    
-# filtered_verb_list = [i for i in unfil_verb_list if i]
+for x in word_set_verb:
+    unfil_verb_list.append(x.hypernyms())
 
-# for y in filtered_verb_list:
-#     reco_verb_list.append(y[0].name().split('.')[0])
+filtered_verb_list = [i for i in unfil_verb_list if i]
+
+for y in filtered_verb_list:
+    reco_verb_list.append(y[0].name().split('.')[0])
 
 #####reco_list.append(x.hypernyms()[0].name().split('.')[0])
 
-# set_verb_list = set(reco_verb_list)
+set_verb_list = set(reco_verb_list)
 
-# final_reco_verb_list = []
+final_reco_verb_list = []
 
-# co = ', '
-# for y in set_verb_list:
-#     final_reco_verb_list.append(y)
+co = ', '
+for y in set_verb_list:
+    final_reco_verb_list.append(y)
 
 #gives the recommendations based on the maximum number of nouns
-# print 'Recommendations-3:',comma.join(final_reco_verb_list)
+print 'Recommendations-3:',comma.join(final_reco_verb_list)
 
 
 result = answer
