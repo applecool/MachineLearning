@@ -1,7 +1,6 @@
 <?php
 
 // This page adds a page of content to the list of the user's favorites.
-// This is bonus material based upon recommendations suggested in Chapter 5.
 
 // Require the configuration before any PHP code as the configuration controls error reporting:
 require('./includes/config.inc.php');
@@ -28,13 +27,13 @@ if (filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min_range' => 1))) {
 		include('./includes/footer.html');
 		exit();
 	}
-	
+
 	// Fetch the page info:
 	$row = mysqli_fetch_array($r, MYSQLI_ASSOC);
 	$page_title = $row['title'];
 	include('includes/header.html');
 	echo "<h3>$page_title</h3>";
-	
+
 	// Add this favorite to the database:
 	$q = 'REPLACE INTO favorite_pages (user_id, page_id) VALUES (' . $_SESSION['user_id'] . ', ' . $_GET['id'] . ')';
 	$r = mysqli_query($dbc, $q);
@@ -46,7 +45,7 @@ if (filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min_range' => 1))) {
 
 	// Show the page content:
 	echo "<div>{$row['content']}</div>";
-		
+
 } else { // No valid ID.
 	$page_title = 'Error!';
 	include('includes/header.html');

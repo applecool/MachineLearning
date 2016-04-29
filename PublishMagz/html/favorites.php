@@ -1,7 +1,6 @@
 <?php
 
 // This page displays a list of the user's favorites.
-// This is bonus material based upon recommendations suggested in Chapter 5.
 
 // Require the configuration before any PHP code as the configuration controls error reporting:
 require('./includes/config.inc.php');

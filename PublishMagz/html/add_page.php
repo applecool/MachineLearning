@@ -1,7 +1,6 @@
 <?php
 
 // This page is used by an administrator to create a specific page of HTML content.
-// This script is created in Chapter 5.
 
 // Require the configuration before any PHP code as the configuration controls error reporting:
 require('./includes/config.inc.php');
@@ -21,15 +20,15 @@ include('./includes/category_list.inc.php');
 $add_page_errors = array();
 
 // Check for a form submission:
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {	
-	
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
 	// Check for a title:
 	if (!empty($_POST['title'])) {
 		$t = escape_data(strip_tags($_POST['title']), $dbc);
 	} else {
 		$add_page_errors['title'] = 'Please enter the title!';
 	}
-	
+
 	// Check for a category:
 	if (filter_var($_POST['category'], FILTER_VALIDATE_INT, array('min_range' => 1))) {
 		$cat = $_POST['category'];
@@ -43,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	} else {
 		$add_page_errors['description'] = 'Please enter the description!';
 	}
-		
+
 	// Check for the content:
 	if (!empty($_POST['content'])) {
 		$allowed = '<div><p><span><br><a><img><h1><h2><h3><h4><ul><ol><li><blockquote>';
@@ -60,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	echo "<br />";
 	echo $result;
 	echo "<br />";
-		
+
 	if (empty($add_page_errors)) { // If everything's OK.
 
 		// Add the page to the database:
@@ -68,21 +67,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$r = mysqli_query($dbc, $q);
 
 		if (mysqli_affected_rows($dbc) === 1) { // If it ran OK.
-	
+
 			// Print a message:
 			echo '<div class="alert alert-success"><h3>The page has been added!</h3></div>';
-			
+
 			// Clear $_POST:
 			$_POST = array();
-			
+
 			// Send an email to the administrator to let them know new content was added?
-			
+
 		} else { // If it did not run OK.
 			trigger_error('The page could not be added due to a system error. We apologize for any inconvenience.');
 		}
-		
+
 	} // End of $add_page_errors IF.
-	
+
 } // End of the main form submission conditional.
 
 // Need the form functions script, which defines create_form_input():
@@ -99,11 +98,11 @@ require('includes/form_functions.inc.php');
 </select></div>
 
 <?php
-create_form_input('title', 'text', 'Title', $add_page_errors); 
+create_form_input('title', 'text', 'Title', $add_page_errors);
 
 //Add the category drop down menu:
 echo '<div class="form-group';
-if (array_key_exists('category', $add_page_errors)) echo ' has-error'; 
+if (array_key_exists('category', $add_page_errors)) echo ' has-error';
 
 
 echo '"><label for="category" class="control-label">Category</label>
@@ -131,15 +130,15 @@ echo '</select>';
 if (array_key_exists('category', $add_page_errors)) echo '<span class="help-block">' . $add_page_errors['category'] . '</span>';
 echo '</div>';
 
-create_form_input('description', 'textarea', 'Description', $add_page_errors); 
-create_form_input('content', 'textarea', 'Content', $add_page_errors); 
+create_form_input('description', 'textarea', 'Description', $add_page_errors);
+create_form_input('content', 'textarea', 'Content', $add_page_errors);
 ?>
-		
+
 		<input type="submit" name="submit_button" value="Add This Page" id="submit_button" class="btn btn-default" />
-	
+
 	</fieldset>
 
-</form> 
+</form>
 
 <script type="text/javascript" src="/ex1/html/js/tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
@@ -149,7 +148,7 @@ create_form_input('content', 'textarea', 'Content', $add_page_errors);
 		width : 800,
 		height : 400,
 		browser_spellcheck : true,
-		
+
 		plugins: "paste,searchreplace,fullscreen,hr,link,anchor,image,charmap,media,autoresize,autosave,contextmenu,wordcount",
 
 		toolbar1: "cut,copy,paste,|,undo,redo,removeformat,|hr,|,link,unlink,anchor,image,|,charmap,media,|,search,replace,|,fullscreen",

@@ -1,7 +1,6 @@
 <?php
 
 // This page displays the articles listed within a given category.
-// This script is created in Chapter 5.
 
 // Require the configuration before any PHP code as the configuration controls error reporting:
 require('./includes/config.inc.php');
@@ -24,13 +23,13 @@ if (filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min_range' => 1))) {
 		include('./includes/footer.html');
 		exit();
 	}
-	
+
 	// Fetch the category title and use it as the page title:
 	list($page_title) = mysqli_fetch_array($r, MYSQLI_NUM);
 	include('./includes/header.html');
 	include('./includes/category_list.inc.php');
 	echo '<h1>' . htmlspecialchars($page_title) . '</h1>';
-	
+
 	// Print a message if they're not an active user:
 	// Change the message based upon the user's status:
 	if (isset($_SESSION['user_id']) && !isset($_SESSION['user_not_expired'])) {
@@ -44,7 +43,7 @@ if (filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min_range' => 1))) {
 	$q = 'SELECT id, title, description FROM pages WHERE categories_id=' . $cat_id . ' ORDER BY date_created DESC';
 	$r = mysqli_query($dbc, $q);
 	if (mysqli_num_rows($r) > 0) { // Pages available!
-	
+
 		// Fetch each record:
 		while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
 
@@ -52,7 +51,7 @@ if (filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min_range' => 1))) {
 			echo '<div><h4><a href="page.php?id=' . $row['id'] . '">' . htmlspecialchars($row['title']) . '</a></h4><p>' . htmlspecialchars($row['description']) . '</p></div>';
 
 		} // End of WHILE loop.
-		
+
 	} else { // No pages available.
 		echo '<p>There are currently no pages of content associated with this category. Please check back again!</p>';
 	}
