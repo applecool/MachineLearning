@@ -1,17 +1,10 @@
-
-
-#########################################################
-
 import sys, json
 import nltk
 from nltk.corpus import brown
 from collections import Counter
 from textblob import Word
 
-#########################################################
 # Load the data that PHP sent us
-
-
 try:
     data = json.loads(sys.argv[1])
     #data = raw_input()
@@ -34,10 +27,6 @@ except:
 
 ##porter = nltk.PorterStemmer()
 ##result = porter.stem('distributing')
-
-#########################################################
-## Part of Speech Tagging (not working)
-## this needs numpy
 
 def pos_features(sentence, i):
     features = {"suffix(1)": sentence[i][-1:],
@@ -67,7 +56,6 @@ train_set, test_set = featuresets[size:], featuresets[:size]
 
 classifier = nltk.NaiveBayesClassifier.train(train_set)
 
-#sentence_rc = 'Truly, truly, I say to you, a slave is not greater than his master, nor is one who is sent greater than the one who sent him. King James Bible'
 sentence_rc = data
 answer = ''
 nouns = []
@@ -101,7 +89,6 @@ for i, word in enumerate(tokens):
     if not any(word in s for s in neglect_list):
         fil_wordlist.append(word)
 
-    #print predict_list
     answer = answer + ' (' + '(' + word + '),' + '(' + predicted_tag + ')' + '), '
 
 #print predict_list
