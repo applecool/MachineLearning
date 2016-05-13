@@ -5,11 +5,7 @@
 import sys, json
 import nltk
 from nltk.corpus import brown
-#from nltk.corpus import wordnet as wn
-#from __future__ import division
-#import re
 from urllib import urlopen
-#from BeautifulSoup import BeautifulSoup
 
 
 #########################################################
@@ -27,8 +23,6 @@ except:
 #########################################################
 ## Access text from the web (such as data)
 
-
-#cleantext = soup.text
 input_string = data
 #print input_string
 
@@ -56,7 +50,7 @@ documents = [(list(movie_reviews.words(fileid)), category) for category in movie
 random.shuffle(documents)
 
 featuresets = [(document_features(d), c) for (d, c) in documents]
-#print featuresets
+print featuresets
 train_set, test_set = featuresets[100:], featuresets[:100]
 classifier = nltk.NaiveBayesClassifier.train(train_set)
 predicted_class = classifier.classify(document_features(input_string))
